@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <stdlib.h>
+#include <string.h>
 #define QTY_EMPLEADOS 10
 int imprimeArrayInt(int array[],int limite);
 int initArrayInt(int array[],int limite,int valor);
@@ -30,30 +31,42 @@ int getInt(	int *pResultado,
 			int minimo,
 			int maximo,
 			int reintentos);
+int ordenarArrayInt2(int array[],int limite);
+int getString(	int *pResultado,
+				char *pMensaje,
+				char *pMensajeError,
+				int minimo,
+				int maximo,
+				int reintentos);
 int ordenarArrayInt(int array[],int limite);
 
 int main(void)
 {
-	int edadesEmpleados[QTY_EMPLEADOS] =  {22,1,44,2,1};
-		int cantidadDatos = 5 ;
+	int edadesEmpleados[QTY_EMPLEADOS] =  {22,1,44,2,1,88};
+		int cantidadDatos = 6 ;
 		int test;
+
+		char nombre[50];
+		getString(nombre,"Ingrese su nombre\n","ERROR\n",2,10,5);
+		printf("El nombre es %s",nombre);
+
 
 		//cantidadDatos = getArrayInt(edadesEmpleados,QTY_EMPLEADOS,"Edad?\n","Error\n",0,200,2);
 		if(cantidadDatos > 0)
 		{
 			imprimeArrayInt(edadesEmpleados,cantidadDatos);
-			ordenarArrayInt(edadesEmpleados,cantidadDatos);
+			ordenarArrayInt2(edadesEmpleados,cantidadDatos);
 			imprimeArrayInt(edadesEmpleados,cantidadDatos);
 			maximoArrayInt(edadesEmpleados,cantidadDatos,&test);
 		}
 
 
-	/*
-		if(initArrayInt(edadesEmpleados,QTY_EMPLEADOS,10) == 0)
+
+		/*if(initArrayInt(edadesEmpleados,QTY_EMPLEADOS,10) == 0)
 		{
 			imprimeArrayInt(edadesEmpleados,QTY_EMPLEADOS);
-		}
-	*/
+		}*/
+
 		return EXIT_SUCCESS;
 }
 
@@ -99,19 +112,29 @@ int getInt(	int *pResultado,
 {
 	int retorno = -1;
 	int buffer;
-	do
+
+	if(			pResultado != NULL &&
+					pMensaje != NULL &&
+					pMensajeError != NULL &&
+					minimo <= maximo &&
+					reintentos >=0)
 	{
-		printf("%s",pMensaje);
-		__fpurge(stdin);
-		if(scanf("%d",&buffer)==1 && buffer >= minimo && buffer <= maximo)
+
+		do
 		{
-			*pResultado = buffer;
-			retorno = 0;
-			break;
-		}
-		printf("%s",pMensajeError);
-		reintentos--;
-	}while(reintentos >= 0);
+			printf("%s",pMensaje);
+			__fpurge(stdin);
+			if(scanf("%d",&buffer)==1 && buffer >= minimo && buffer <= maximo)
+			{
+				*pResultado = buffer;
+				retorno = 0;
+				break;
+			}
+			printf("%s",pMensajeError);
+			reintentos--;
+		}while(reintentos >= 0);
+
+	}
 	return retorno;
 }
 
@@ -177,7 +200,7 @@ int maximoArrayInt(int array[],int limite,int *pResultado)
 	return retorno;
 }
 
-int ordenarArrayInt(int array[],int limite)
+int ordenarArrayInt2(int array[],int limite)
 {
 	int i;
 	int retorno = -1;
@@ -195,21 +218,97 @@ int ordenarArrayInt(int array[],int limite)
 	}
 	return retorno;
 }
-
-int ordenarArrayIntBis(int array[],int limite)
+int ordenaArrayInt(int array[],int limite)
 {
-	int i--1;
+	int i;
+	int retorno = -1;
+	int flagSwap;
+	int bufferInt;
+	if(array != NULL && limite > 0)
+	{
+		retorno = 0;
+		do
+		{
+			flagSwap=0;
+			for(i=0;i<limite-1;i++)
+			{
+				if(array[i] > array[i+1])
+				{
+					flagSwap = 1;
+					bufferInt = array[i];
+					array[i] = array[i+1];
+					array[i+1] = bufferInt;
+
+				}
+			}
+
+		}while(flagSwap);
+
+	}
+	return retorno;
+}
+
+/*int insercionArrayInt(int array[],int limite)
+{
+	int i;
+	int j;
 	int retorno = -1;
 	int aux;
 	int posMaximo;
 
 	if(array != NULL && limite > 0)
 	{
+		aux=array[i];
+		j=i+1
 		do
 		{
 			maximoArrayInt(array+i,limite-i,&posMaximo);
-			auxilar
 
-		}while(array[i]-1 > array[]);
+
+		}while(flagSwap);
 	}
+	return retorno
+}*/
+
+
+/*char buffer[50];//string de 49 caracteres
+fgets(buffer,sizeof(buffer),stdin);//funcion que lee lo que ingresa el usuario, lee un string desde un archivo
+							//se le pasa el nombre de la variable,el tamaño y de que archivo lo lee*/
+
+
+int getString(	int *pResultado,
+				char *pMensaje,
+				char *pMensajeError,
+				int minimo,
+				int maximo,
+				int reintentos)
+{
+	int retorno = -1;
+	char buffer[4096];
+	if(			pResultado != NULL &&
+				pMensaje != NULL &&
+				pMensajeError != NULL &&
+				minimo <= maximo &&
+				reintentos >=0)
+	{
+
+		do
+		{
+			printf("%s",pMensaje);
+			__fpurge(stdin);
+			fgets(buffer,sizeof(buffer),stdin);
+			buffer[strlen(buffer)-1] ='\0';
+			if(strlen(buffer) >= minimo && strlen(buffer) <= maximo)
+			{
+				//*pResultado;//strcpy PROHIBIDA la que si va strncpy
+				strncpy(pResultado,buffer,maximo+1);//se pone destino,origen,cant de caracteres
+				retorno = 0;
+				break;
+			}
+			printf("%s",pMensajeError);
+			reintentos--;
+		}while(reintentos >= 0);
+	}
+	return retorno;
 }
+
