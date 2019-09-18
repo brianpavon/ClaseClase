@@ -22,9 +22,14 @@ int main(void)
 
 	//int numero;
 	struct sEmpleado aEmpleados[QTY_EMPLEADOS];
-	struct sEmpleado unEmpleado = {5,STATUS_EMPTY,"Juan","Perez"};
 	initLugarLibreEmpleado(aEmpleados,QTY_EMPLEADOS);
+	altaForzadaEmpleados(aEmpleados,QTY_EMPLEADOS);
+	struct sEmpleado unEmpleado = {5,STATUS_EMPTY,"Juan","Perez"};
+	struct sEmpleado otroEmpleado = {6,STATUS_EMPTY,"Pancho","Ramirez"};
+
+
 	altaEmpleadoPorId(aEmpleados,QTY_EMPLEADOS,unEmpleado);
+	altaEmpleadoPorId(aEmpleados,QTY_EMPLEADOS,otroEmpleado);
 	imprimirArrayEmpleados(aEmpleados,QTY_EMPLEADOS);
 
 
