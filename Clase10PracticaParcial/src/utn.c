@@ -66,7 +66,7 @@ int getFloat(	float *resultado,
 			{
 				printf("%s",mensaje);
 				__fpurge(stdin);
-				if(scanf("%2.f",&buffer)==1)
+				if(scanf("%f",&buffer)==1)
 				{
 					if(buffer >= minimo && buffer <= maximo)
 					{

@@ -25,6 +25,9 @@ struct sPantalla
 	float precio;
 };
 typedef struct sPantalla Pantalla;
+
+static int generarId(void);
+
 int initLugarLibrePantalla(Pantalla *aArray, int cantidad);
 
 int imprimirArrayPantalla(Pantalla *aPantalla, int cantidad);
@@ -40,8 +43,6 @@ int bajaPantallaPorId(Pantalla *aArray, int cantidad,int id);
 int modificarPantallaPorId(Pantalla *aArray, int cantidad,Pantalla pantalla);
 
 int altaPantallaPorId(Pantalla *aArray, int cantidad,Pantalla pantalla);
-
-static int generarId(void);
 
 
 #endif /* PANTALLA_H_ */

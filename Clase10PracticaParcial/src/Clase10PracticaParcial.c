@@ -24,8 +24,9 @@ int main(void)
 	struct sPantalla aPantalla[QTY_PANTALLAS];
 	initLugarLibrePantalla(aPantalla,QTY_PANTALLAS);
 	struct sPantalla unaPantalla = {5,STATUS_EMPTY,"LCD","LCD","Avellaneda 851",100};
-	altaPantallaPorId(aPantalla,QTY_PANTALLAS,unaPantalla);
-	imprimirArrayPantalla(aPantalla,QTY_PANTALLAS);
+	bajaPantallaPorId(aPantalla,QTY_PANTALLAS,unaPantalla);
+	//altaPantallaPorId(aPantalla,QTY_PANTALLAS,unaPantalla);
+	//imprimirArrayPantalla(aPantalla,QTY_PANTALLAS);
 
 
 	return EXIT_SUCCESS;
