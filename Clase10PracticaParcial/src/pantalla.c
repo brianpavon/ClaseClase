@@ -120,20 +120,34 @@ int buscarLugarLibrePantalla(struct sPantalla *aArray, int cantidad)
 	return index;
 }
 
-int altaPantallaPorId(struct sPantalla *aArray, int cantidad,struct sPantalla pantalla)
+int altaPantallaPorId(struct sPantalla *aArray, int cantidad,int id)
 {
 	int retorno = -1;
 	int i = 0;
+	struct sPantalla auxPantalla;
 	if(aArray != NULL && cantidad > 0)
 	{
 
 		i = buscarLugarLibrePantalla(aArray,cantidad);
+		getString(auxPantalla.nombre,"Ingrese el nombre de la pantalla\n","ERROR\n",0,50,2);
+		getString(auxPantalla.tipo,"Ingrese el tipo de la pantalla\n","ERROR\n",0,50,2);
+		getString(auxPantalla.direccion,"Ingrese la direccion de la pantalla\n","ERROR\n",0,100,2);
+		getFloat(auxPantalla.precio,"Ingrese el precio: \n","ERROR\n",0,1000,2);
+		auxPantalla.idPantalla = id+1;
 		if(i>=0)
 		{
-			pantalla.status = STATUS_NOT_EMPTY;
+			strncpy(aArray[i].nombre,auxPantalla.nombre,50);
+			strncpy(aArray[i].tipo,auxPantalla.tipo,50);
+			strncpy(aArray[i].direccion,auxPantalla.direccion,100);
+			aArray[i].precio = auxPantalla.precio;
+			aArray[i].status = STATUS_NOT_EMPTY;
+			aArray[i].idPantalla = auxPantalla.idPantalla;
+
+
+			/*pantalla.status = STATUS_NOT_EMPTY;
 			aArray[i]=pantalla;
 			aArray[i].idPantalla=generarId();
-			retorno = 0;
+			retorno = 0;*/
 		}
 		/*else
 		{
@@ -144,23 +158,22 @@ int altaPantallaPorId(struct sPantalla *aArray, int cantidad,struct sPantalla pa
 	return retorno;
 }
 
-int bajaPantallaPorId(struct sPantalla *aArray, int cantidad,int id)//es igual que modificacion
+/*int bajaPantallaPorId(struct sPantalla *aArray, int cantidad,int id)//es igual que modificacion
 {
 	/*mostrar los empleados
 	 * llama a buscar por id
 	 * si existe,muestro y pregunto si estas seguro, ahi si cambio el estado
 	 * si no existe, digo el retorno
 	 */
-	int retorno = -1;
-	int i=0;
+	/*int retorno = -1;
 	if(aArray != NULL && cantidad > 0)
 	{
 		imprimirArrayPantalla(aArray,QTY_PANTALLAS);
-		aArray[i].idPantalla = getInt(id,"Indique el ID a borrar: ","ERROR",0,QTY_PANTALLAS,3);
+		getInt(id,"Indique el ID a borrar: ","ERROR",0,QTY_PANTALLAS,3);
+		aArray[i].idPantalla = id;
 		if(buscarPantallaPorId(aArray,QTY_PANTALLAS,id)!= STATUS_NOT_EMPTY)
 		{
 			printf("Desea borrar este item? Ingrese s o n \n");
-			getchar();
 			if(getchar() =='s')
 			{
 				aArray[i].status = STATUS_EMPTY;
@@ -170,7 +183,7 @@ int bajaPantallaPorId(struct sPantalla *aArray, int cantidad,int id)//es igual q
 
 	}
 	return retorno;
-}
+}*/
 
 int buscarPantallaPorId(Pantalla *aArray, int cantidad,int id)
 {

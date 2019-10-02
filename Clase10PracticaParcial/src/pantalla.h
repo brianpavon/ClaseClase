@@ -42,7 +42,7 @@ int bajaPantallaPorId(Pantalla *aArray, int cantidad,int id);
 
 int modificarPantallaPorId(Pantalla *aArray, int cantidad,Pantalla pantalla);
 
-int altaPantallaPorId(Pantalla *aArray, int cantidad,Pantalla pantalla);
+int altaPantallaPorId(Pantalla *aArray, int cantidad,int id);
 
 
 #endif /* PANTALLA_H_ */
