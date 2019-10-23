@@ -1,0 +1,24 @@
+MEMORIA DINAMICA
+//malloc consigue espacio en un lugar de memoria llamado heat
+	int *pEntero = malloc(sizeof(int));//guarda en memoria dinamica, con la funcion malloc, se debe guardar en un puntero
+	int *pArrayEntero = malloc(sizeof(int)*5);//se guardan 5 enteros
+	//asi esta mal
+	pArrayEntero = realloc(pArrayEntero,sizeof(int)*8);//la direccion de memoria que queres dimensionar,devuelve el puntero donde consiguio el espacio
+	//hay que usar siempre el realloc con bufer, seria asi:
+	pBuffer = realloc(pArrayEntero,sizeof(int)*8);
+	if(pBuffer != NULL)
+	{
+		pArrayEntero = pBuffer;
+	}
+	
+	//recibe lo que queres liberar:
+	free(pArrayEntero);//desaparece la informacion de malloc,distinto a un realloc a cero
+
+
+-PRIMERO VAMOS A HACER UN CONTRUCTOR, QUE VA A DAR UN PUNTERO APUNTANDO A PERSONA(en este caso), los punteros que pasemos se van a llamar "this" (hace referencia a un contexto)Que seria "new", asigna espacio en memoria
+-Y el destructor usa el free,lo llamamos "Delete", libera la memoria
+-Funciones setter, van a setear informacion valida y en formatos en nuestras funciones
+    Se declaran "set"_("lo que quiero setear) y lo que le voy a pasar, (lo copio tal cual lo declare en la estructura)
+-Funciones gets, para sacar informacion
+-Tambien se usa crear un constructor con parametros, donde se usa el contructor y todos los sets.
+-Para que solamente algunas funciones se usen en el contexto de ese archivo, declaramos las funciones con "static", asi no se pueden llamar en otro contexto
