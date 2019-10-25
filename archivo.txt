@@ -1,0 +1,4 @@
+45,flaquito,52,36
+48,gordito,95,45
+48,normalito,85,95
+
