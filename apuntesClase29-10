@@ -1,0 +1,29 @@
+FILE* pFile;
+	//char linea[256];
+	char id[4096];
+	char nombre[4096];
+	char horasTrabajadas[4096];
+	char sueldo[4096];
+	//expresar la ruta al archivo,absoluta(describir toda la ubicacion del archivo)relativa,poner el nombre del archivo
+	//en realidad se debe poner ../ asi le digo en que carpeta precisamente esta
+	 pFile = fopen("data.csv","r");//en la segunda comilla se pone de que forma voy abrir el archivo
+	 if(pFile != NULL)
+	 {
+		 //printf("atr\n");//para ver si abrio bien
+		 while(!feof(pFile))
+		 {
+			 //fscanf(pFile,"%s",linea);//primer parametro:el archivo,la mascara,y donde lo guardo
+			 //printf("%s\n",linea);
+			 //para aceptar un caracter pero no asignarlo, no se coloca %, si es un solo elemento no va en [],sino si
+			 fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",
+					 	    id,
+							nombre,
+							horasTrabajadas,
+							sueldo);
+			 //para eliminar la primera linea con una linea
+			 printf("%s\n",nombre);
+		 }
+
+	 }
+	 fclose(pFile);//siempre que abramos un archivo, lo cerramos al toque despues de abrirlo
+
