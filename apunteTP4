@@ -1,0 +1,43 @@
+#ifndef __LINKEDLIST
+#define __LINKEDLIST
+struct Node
+{
+void* pElement;
+struct Node* pNextNode;
+}typedef Node;
+struct LinkedList
+{
+Node* pFirstNode;//apunta a una direccion de memoria
+int size;//es el tamaño de lo que cargamos en el linkedlist para evitar recorrer todo el
+}typedef LinkedList;
+#endif
+
+
+CONSTRUIR UN NODO EN MEMORIA.
+SIZE VALE 0
+Y pFirstNode NULL
+
+cuando agrega, el nodo nuevo apunta al ultimo elemento, e incremento en 1 el size
+Si quiero acceder a una direccion de memoria, tengo que agrandar el linkedlist, con otro nodo
+
+¿COMO VEO QUE UNA LISTA ESTA VACIA?
+SIZE ES CERO Y PFIRSTNODE ES NULL
+¿COMO SE CUAL ES EL ULTIMO?
+SI EL NODO QUE SIGUE AL ULTIMO ESTA EN NULL ESE ES EL ULTIMO
+
+2 FUNCIONES FUNDAMENTALES:
+-Agregar un nodo
+-Pedir un nodo
+
+Las funciones se desarrollan en node o con un orden, primero se desarrolla una funcion y despues otra.
+Para probar las funciones, se prueban con test unitario
+Hay que hacer pasar los test en orden.
+SOLO SE CARGA CODIGO EN LINKEDLIST.C, no hay que cambiar las firmas de una funcion, y esta establecida que espera y que recibe.
+
+En los test se validan cosas, ejemplo, verificar que (linkedlist* this,int nodeElement)
+que this != NULL && nodeElement este en un rango de 0 hasta size - 1
+
+Con los punteros no me meto, si con this.
+
+LISTA DOBLEMENTE ENLAZADA:
+CONOZCO QUIEN ES EL PROXIMO NODO Y EL ANTERIOR NODO. A TRAVES DE NODO DE REFERENCIA
