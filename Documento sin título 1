@@ -1,0 +1,16 @@
+Auntes 7/11/19:
+
+Como declaro en array y como con linkedlist:
+
+Array:					     Con Linkedlist:
+Persona(es una estructura) pe,pe2;		Linkedlist* lista;
+Persona* array[100];			lista=new_linkedlist();
+		ESTAS 2 COSAS SON EQUIVALENTES
+
+Otra equivalencia:
+
+array[0] = &pe				ll_add(lista,&pe);
+
+Otra equivalencia mas:
+
+pe = array[2];				ll_get(lista,2);
