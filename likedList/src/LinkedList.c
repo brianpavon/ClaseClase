@@ -248,7 +248,15 @@ int ll_remove(LinkedList* this,int index)
 int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
-
+    int index;
+    if(this != NULL)
+    {
+    	for(index=0; index<ll_len(this); index++)
+    	{
+    		ll_remove(this,index);
+    	}
+    	returnAux = 0;
+    }
     return returnAux;
 }
 
