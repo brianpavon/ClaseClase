@@ -17,6 +17,11 @@ LinkedList* ll_newLinkedList(void)
 {
     LinkedList* this= NULL;
     this = malloc(sizeof(LinkedList));
+    if(this != NULL)
+    {
+    	this->size = 0;
+    	this->pFirstNode = NULL;
+    }
     return this;
 }
 
@@ -103,7 +108,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     	}
     	else
     	{
-    		pNodoAnterior = getNode(this,nodeIndex-1);
+    		pNodoAnterior = getNode(this,nodeIndex-1);//cuando quiero que vaya en algun lugar != al principio
     		pNodo->pNextNode = pNodoAnterior->pNextNode;
     		pNodoAnterior->pNextNode = pNodo;
     	}
@@ -137,7 +142,14 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    Node* pNodo;
+    int index;
+    if(this != NULL && pElement != NULL)
+    {
+    	returnAux = 0;
 
+    	addNode(this,,pElement);
+    }
     return returnAux;
 }
 

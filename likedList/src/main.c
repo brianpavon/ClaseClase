@@ -30,8 +30,8 @@ int main(void)
     startTesting(2);  // ll_len
 	startTesting(3);  // getNode - test_getNode
 	startTesting(4);  // addNode - test_addNode
-/*	startTesting(5);  // ll_add  usa addNode
-	startTesting(6);  // ll_get  usa getNode
+	startTesting(5);  // ll_add  usa addNode
+/*	startTesting(6);  // ll_get  usa getNode
 	startTesting(7);  // ll_set	 usa getNode y cambia el elemento
 	startTesting(8);  // ll_remove  obtenes el nodo, y que ese nodo le pase adonde apuntaba al anterior a el, y hacerle un free
 	startTesting(9);  // ll_clear  esto es remove en secuencia
