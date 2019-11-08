@@ -97,21 +97,28 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     if(this != NULL && nodeIndex>= 0 && nodeIndex <= this->size)
     {
     	pNodo = malloc(sizeof(pNodo));//verificar si dio null esto if(pNodo == NULL)return -1;
-
-    	returnAux = 0;
-    	this->size++;
-    	pNodo->pElement = pElement;//estas 2 ultimas lineas van siempre
-    	if(nodeIndex == 0)//cuando quiero que vaya al principio
+    	if(pNodo == NULL)
     	{
-    		pNodo->pNextNode = this->pFirstNode;//el proximo de pNodo va a ser el que era el primero
-    		this->pFirstNode = pNodo;//pNodo pasa a ser el primero
+    		returnAux = -1;
     	}
     	else
     	{
-    		pNodoAnterior = getNode(this,nodeIndex-1);//cuando quiero que vaya en algun lugar != al principio
-    		pNodo->pNextNode = pNodoAnterior->pNextNode;
-    		pNodoAnterior->pNextNode = pNodo;
+    		returnAux = 0;
+    		this->size++;
+    		pNodo->pElement = pElement;//estas 2 ultimas lineas van siempre
+    		if(nodeIndex == 0)//cuando quiero que vaya al principio
+    		{
+    			pNodo->pNextNode = this->pFirstNode;//el proximo de pNodo va a ser el que era el primero
+    			this->pFirstNode = pNodo;//pNodo pasa a ser el primero
+    		}
+    		else
+    		{
+    			pNodoAnterior = getNode(this,nodeIndex-1);//cuando quiero que vaya en algun lugar != al principio
+    			pNodo->pNextNode = pNodoAnterior->pNextNode;
+    			pNodoAnterior->pNextNode = pNodo;
+    		}
     	}
+
 
     }
     return returnAux;
@@ -142,13 +149,12 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
 int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    Node* pNodo;
-    int index;
-    if(this != NULL && pElement != NULL)
-    {
-    	returnAux = 0;
 
-    	addNode(this,,pElement);
+    if(this != NULL)
+    {
+    	addNode(this,ll_len(this),pElement);
+
+    	returnAux = 0;
     }
     return returnAux;
 }
@@ -164,7 +170,12 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
-
+    Node* pNodo = NULL;
+    if(this != NULL && index>=0 && index<ll_len(this))
+    {
+    	pNodo = getNode(this,index);
+    	returnAux = pNodo->pElement;
+    }
     return returnAux;
 }
 
