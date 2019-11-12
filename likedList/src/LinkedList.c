@@ -271,6 +271,12 @@ int ll_clear(LinkedList* this)
 int ll_deleteLinkedList(LinkedList* this)
 {
     int returnAux = -1;
+    if(this != NULL)
+    {
+    	ll_clear(this);
+    	free(this);
+    	returnAux = 0;
+    }
 
     return returnAux;
 }
@@ -286,7 +292,21 @@ int ll_deleteLinkedList(LinkedList* this)
 int ll_indexOf(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    int i;
+    void* auxElement;
+    if(this != NULL)
+    {
+    	for(i=0; i<ll_len(this); i++)
+    	{
+    		auxElement = ll_get(this,i);
+    		if(auxElement == pElement)
+    		{
+    		  returnAux = i;
+    		  break;
+    		}
+    	}
 
+    }
     return returnAux;
 }
 

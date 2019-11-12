@@ -36,8 +36,8 @@ int main(void)
 	startTesting(8);  // ll_remove  obtenes el nodo, y que ese nodo le pase adonde apuntaba al anterior a el, y hacerle un free
 	startTesting(9);  // ll_clear  esto es remove en secuencia
 	startTesting(10); // ll_deleteLinkedList
-/*	startTesting(11); // ll_indexOf   getNode un monton de veces
-	startTesting(12); // ll_isEmpty  saber si size esta en cero
+	startTesting(11); // ll_indexOf   getNode un monton de veces
+/*	startTesting(12); // ll_isEmpty  saber si size esta en cero
 	startTesting(13); // ll_push  poner un elemento donde se te ocurra, agregar un nodo seria
 	startTesting(14); // ll_pop   devolver el elemento que esta a lo ultimo o del indice y sacarlo(usa get y remove)
 	startTesting(15); // ll_contains nos dan un elemento y ver si esta en la lista
