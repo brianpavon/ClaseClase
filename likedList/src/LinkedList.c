@@ -322,6 +322,18 @@ int ll_isEmpty(LinkedList* this)
 {
     int returnAux = -1;
 
+    if(this != NULL)
+    {
+    	if(this->size == 0)
+    	{
+    		returnAux = 1;
+    	}
+    	else if(this->size != 0)
+    	{
+    		returnAux = 0;
+    	}
+    }
+
     return returnAux;
 }
 
