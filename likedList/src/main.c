@@ -39,8 +39,8 @@ int main(void)
 	startTesting(11); // ll_indexOf   getNode un monton de veces
 	startTesting(12); // ll_isEmpty  saber si size esta en cero
 	startTesting(13); // ll_push  poner un elemento donde se te ocurra, agregar un nodo seria
-/*	startTesting(14); // ll_pop   devolver el elemento que esta a lo ultimo o del indice y sacarlo(usa get y remove)
-	startTesting(15); // ll_contains nos dan un elemento y ver si esta en la lista
+	startTesting(14); // ll_pop   devolver el elemento que esta a lo ultimo o del indice y sacarlo(usa get y remove)
+/*	startTesting(15); // ll_contains nos dan un elemento y ver si esta en la lista
 	startTesting(16); // ll_containsAll ver que un array este dentro
 	startTesting(17); // ll_subList construir una nueva lista y agregar un rango de la lista vieja
 	startTesting(18); // ll_clone  caso particular de sub list
