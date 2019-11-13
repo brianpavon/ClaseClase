@@ -550,9 +550,10 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 
 
     		}
+    		ll_set(this,i,pElement);
+    		ll_set(this,j,pElementDos);
     	}
-    	ll_set(this,i,pElement);
-    	ll_set(this,j,pElementDos);
+
     }
     return returnAux;
 
