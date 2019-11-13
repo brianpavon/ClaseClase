@@ -522,12 +522,12 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
     	{
     		pElement = ll_get(this,i);
 
-    		for(j=0; j<ll_len(this); j++)
+    		for(j= i+1; j<ll_len(this); j++)
     		{
     			pElementDos = ll_get(this,j);
     			retornoFunc = pFunc(pElement,pElementDos);
 
-    			if(order == 0)
+    			if(order == 1)
     			{
     				if(retornoFunc == 0)
     				{
@@ -537,7 +537,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
     					//flagSwap = 1;
     				}
     			}
-    			if(order == 1)
+    			if(order == 0)
     			{
     				if(retornoFunc == -1)
     				{
