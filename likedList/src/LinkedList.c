@@ -460,7 +460,21 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
+    void* auxElement;
+    int i;
+    if(this!=NULL && from>=0 && from<=ll_len(this))
+    {
+    	if(to>=from && to<=ll_len(this))
+    	{
+    		cloneArray = ll_newLinkedList();
+    		for(i=from; i<to; i++)
+    		{
+    			auxElement = ll_get(this,i);
+    		    addNode(cloneArray,i,auxElement);
+    		}
+    	}
 
+    }
     return cloneArray;
 }
 
