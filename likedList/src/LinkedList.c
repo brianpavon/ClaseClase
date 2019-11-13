@@ -489,7 +489,10 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
-
+    if(this != NULL)
+    {
+    	cloneArray = ll_subList(this,0,this->size);
+    }
     return cloneArray;
 }
 

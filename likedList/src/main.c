@@ -44,7 +44,7 @@ int main(void)
 	startTesting(16); // ll_containsAll ver que un array este dentro
 	startTesting(17); // ll_subList construir una nueva lista y agregar un rango de la lista vieja
 	startTesting(18); // ll_clone  caso particular de sub list
-/*	startTesting(19); // ll_sort */
+	startTesting(19); // ll_sort */
 
     return 0;
 }
