@@ -510,10 +510,11 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
     void* pElement;
     void* pElementDos;
     void* auxElement;
-    //int flagSwap = -1;
+
     int i;
     int j;
-    int retornoFunc;
+    int retornoFunc = -1;
+
     if(this != NULL && pFunc != NULL && (order == 0 || order == 1))
     {
 
@@ -529,31 +530,27 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 
     			if(order == 1)
     			{
-    				if(retornoFunc == 0)
+    				if(retornoFunc == 1)
     				{
-    					auxElement = pElement;
-    					pElement = pElementDos;
-    					pElementDos = auxElement;
-    					//flagSwap = 1;
+    					auxElement = pElementDos;
+    					pElementDos = pElement;
+    					pElement = auxElement;
     				}
     			}
     			if(order == 0)
     			{
     				if(retornoFunc == -1)
     				{
-    					auxElement = pElementDos;
-    					pElementDos = pElement;
-    					pElement = auxElement;
-    					//flagSwap = 1;
+    					auxElement = pElement;
+    					pElement = pElementDos;
+    					pElementDos = auxElement;
     				}
     			}
-
-
+    			ll_set(this,i,pElement);
+    			ll_set(this,j,pElementDos);
     		}
-    		ll_set(this,i,pElement);
-    		ll_set(this,j,pElementDos);
-    	}
 
+    	}
     }
     return returnAux;
 
