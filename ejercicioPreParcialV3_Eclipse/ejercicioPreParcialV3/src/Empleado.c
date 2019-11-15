@@ -16,23 +16,25 @@ void em_calcularSueldo(void* p)
 	int sueldo;
 
 	empleado = (Empleado*) p;
-
+	printf("horas %d\n",empleado->horasTrabajadas);
 	if(empleado->horasTrabajadas <= 120)
 	{
 		sueldo = empleado->horasTrabajadas * 180;
 		empleado->sueldo = sueldo;
-
+		printf("prueba1\n");
 	}
-	if(empleado->horasTrabajadas > 120 || empleado->horasTrabajadas <= 160)
+	if(empleado->horasTrabajadas > 120 && empleado->horasTrabajadas <= 160)
 	{
 		sueldo = empleado->horasTrabajadas * 240;
 		empleado->sueldo = sueldo;
+		printf("prueba\n");
 
 	}
-	if(empleado->horasTrabajadas > 160 || empleado->horasTrabajadas <= 240 )
+	if(empleado->horasTrabajadas > 160 && empleado->horasTrabajadas <= 240 )
 	{
 		sueldo = empleado->horasTrabajadas * 350;
 		empleado->sueldo = sueldo;
+		printf("prueba2\n");
 	}
-
+	printf("%s %d\n",empleado->nombre,empleado->sueldo);
 }

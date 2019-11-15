@@ -44,6 +44,7 @@ int main()
         if(generarArchivoSueldos("sueldos.csv",listaEmpleados)==1)
         {
             printf("Archivo generado correctamente\n");
+
         }
         else
             printf("Error generando archivo\n");
