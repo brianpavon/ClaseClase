@@ -556,3 +556,65 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 
 }
 
+
+/** \brief Realiza una funcion pasada a los elementos de la lista
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion que se va a aplicar
+ * \return int Retorna  (-1) Error: si el puntero a la listas o funcion es NULL
+                                ( 0) Si ok
+ */
+int ll_map(LinkedList* this, void (*pFunc)(void*))
+{
+	int retorno = -1;
+	void* auxElement;
+	int i;
+	if(this != NULL && pFunc != NULL)
+	{
+
+		for(i=0; i< ll_len(this); i++)
+		{
+			auxElement = ll_get(this,i);
+			pFunc(auxElement);
+			retorno = 0;
+		}
+	}
+	return retorno;
+}
+
+/** \brief Realiza un filtro de la lista de acuerdo a cierta funcion
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion que se va a aplicar
+ * \return int Retorna  (-1) Error: si el puntero a la listas o funcion es NULL
+                                ( 0) Si ok
+ */
+
+LinkedList* ll_Filter(LinkedList* this, int (*pFunc)(void*))
+{
+	LinkedList* listaFiltrada = NULL;
+ 	void* pElement;
+ 	int retornoFuncion = -1;
+ 	int i;
+
+ 	for(i=0; i<ll_len(this); i++)
+ 	{
+ 		pElement = ll_get(this,i);
+ 		retornoFuncion = pFunc(pElement);
+ 		if(retornoFuncion == 1)
+ 		{
+ 		//agregar "element" a la lista nueva que voy a devolver
+ 		ll_add(listaFiltrada,pElement);
+  		}
+ 	}
+ 	return listaFiltrada;
+}
+
+
+
+
+
+
+
+
+
+
+
