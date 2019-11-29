@@ -1,0 +1,9 @@
+Y:\Brian\PracticaUno\PracticaUno\obj\Debug\PracticaUno.csprojAssemblyReference.cache
+Y:\Brian\PracticaUno\PracticaUno\obj\Debug\PracticaUno.csproj.CoreCompileInputs.cache
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\bin\Debug\PracticaUno.exe.config
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\bin\Debug\PracticaUno.exe
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\bin\Debug\PracticaUno.pdb
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\obj\Debug\PracticaUno.csprojAssemblyReference.cache
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\obj\Debug\PracticaUno.csproj.CoreCompileInputs.cache
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\obj\Debug\PracticaUno.exe
+C:\Users\alumno\Desktop\PracticaUno\PracticaUno\obj\Debug\PracticaUno.pdb

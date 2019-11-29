@@ -1,0 +1,7 @@
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\bin\Debug\PracticaDos.exe.config
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\bin\Debug\PracticaDos.exe
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\bin\Debug\PracticaDos.pdb
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\obj\Debug\PracticaDos.csprojAssemblyReference.cache
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\obj\Debug\PracticaDos.csproj.CoreCompileInputs.cache
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\obj\Debug\PracticaDos.exe
+C:\Users\alumno\Desktop\Brian\PracticaDos\PracticaDos\obj\Debug\PracticaDos.pdb
